@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image-Slider</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="slideContainer">
+      <div class="slides">
+        <img src="./images/image1.jpg" class="active" />
+        <img src="./images/image2.jpg" />
+        <img src="./images/image3.jpg" />
+        <img src="./images/image4.jpg" />
+        <img src="./images/image5.jpg" />
+        <img src="./images/image6.jpg" />
+        <img src="./images/image7.jpg" />
+        <img src="./images/image8.jpg" />
+        <img src="./images/image9.jpg" />
+        <img src="./images/image10.jpg" />
+      </div>
+      <div class="buttons">
+        <span class="next">&#8658;</span>
+        <span class="prev">&#8656;</span>
+      </div>
+
+      <div class="dotsContainer">
+        <div class="dot active" attr="0" onclick="switchImage(this)"></div>
+        <div class="dot" attr="1" onclick="switchImage(this)"></div>
+        <div class="dot" attr="2" onclick="switchImage(this)"></div>
+        <div class="dot" attr="3" onclick="switchImage(this)"></div>
+        <div class="dot" attr="4" onclick="switchImage(this)"></div>
+        <div class="dot" attr="5" onclick="switchImage(this)"></div>
+        <div class="dot" attr="6" onclick="switchImage(this)"></div>
+        <div class="dot" attr="7" onclick="switchImage(this)"></div>
+        <div class="dot" attr="8" onclick="switchImage(this)"></div>
+        <div class="dot" attr="9" onclick="switchImage(this)"></div>
+      </div>
+    </div>
+    <div class="userControl">
+      <button class="controlButton" id="stopButton" onclick="stopInterval()">
+        Stop
+      </button>
+      <button class="controlButton" id="startButton" onclick="startInterval()">
+        Start
+      </button>
+
+      <form class="formTimer">
+        <label for="timer">Timer:</label>
+        <input id="timerInput" type="text" />
+        <button id="submitButton" onclick="setNewTimer()">Set Timer</button>
+      </form>
+    </div>
+  </body>
+</html>
