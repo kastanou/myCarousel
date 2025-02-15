@@ -10,20 +10,20 @@
   <body>
     <div class="slideContainer">
       <div class="slides">
-        <img src="./images/image1.jpg" class="active" />
-        <img src="./images/image2.jpg" />
-        <img src="./images/image3.jpg" />
-        <img src="./images/image4.jpg" />
-        <img src="./images/image5.jpg" />
-        <img src="./images/image6.jpg" />
-        <img src="./images/image7.jpg" />
-        <img src="./images/image8.jpg" />
-        <img src="./images/image9.jpg" />
-        <img src="./images/image10.jpg" />
+        <img class="image active" src="./images/image1.jpg" />
+        <img class="image" src="./images/image2.jpg" />
+        <img class="image" src="./images/image3.jpg" />
+        <img class="image" src="./images/image4.jpg" />
+        <img class="image" src="./images/image5.jpg" />
+        <img class="image" src="./images/image6.jpg" />
+        <img class="image" src="./images/image7.jpg" />
+        <img class="image" src="./images/image8.jpg" />
+        <img class="image" src="./images/image9.jpg" />
+        <img class="image" src="./images/image10.jpg" />
       </div>
       <div class="buttons">
-        <span class="next">&#8658;</span>
-        <span class="prev">&#8656;</span>
+        <span id="next">&#8658;</span>
+        <span id="prev">&#8656;</span>
       </div>
 
       <div class="dotsContainer">
@@ -50,7 +50,7 @@
       <form class="formTimer">
         <label for="timer">Timer:</label>
         <input id="timerInput" type="text" />
-        <button id="submitButton" onclick="setNewTimer()">Set Timer</button>
+        <button id="submitButton">Set Timer</button>
       </form>
     </div>
   </body>

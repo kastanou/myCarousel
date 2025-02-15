@@ -1,7 +1,7 @@
-const slideImages = document.querySelectorAll("img");
+const slideImages = document.querySelectorAll(".image");
 
-const next = document.querySelector(".next");
-const prev = document.querySelector(".prev");
+const next = document.querySelector("#next");
+const prev = document.querySelector("#prev");
 
 let dots = document.querySelectorAll(".dot");
 
@@ -11,25 +11,39 @@ let myInterval;
 
 const defaultTimer = 3000;
 
-stopButton = document.getElementById("stopButton");
-startButton = document.getElementById("startButton");
+const stopButton = document.getElementById("stopButton");
+const startButton = document.getElementById("startButton");
 
-submitButton = document.getElementById("submitButton");
+const submitButton = document.getElementById("submitButton");
 
 const timerInput = document.getElementById("timerInput");
+
+// Remove animation classes before adding new ones
+
+function removeAnimationClasses() {
+  slideImages.forEach((img) => {
+    img.classList.remove(
+      "slideNext1",
+      "slideNext2",
+      "slidePrev1",
+      "slidePrev2"
+    );
+  });
+}
 
 //Code for next button
 
 next.addEventListener("click", slideNext);
 
 function slideNext() {
-  slideImages[counter].style.animation = "next1 0.5s ease-in forwards";
+  removeAnimationClasses();
+  slideImages[counter].classList.add("slideNext1");
   if (counter >= slideImages.length - 1) {
     counter = 0;
   } else {
     counter++;
   }
-  slideImages[counter].style.animation = "next2 0.5s ease-in forwards";
+  slideImages[counter].classList.add("slideNext2");
   indicators();
 }
 
@@ -38,13 +52,14 @@ function slideNext() {
 prev.addEventListener("click", slidePrev);
 
 function slidePrev() {
-  slideImages[counter].style.animation = "prev1 0.5s ease-in forwards";
+  removeAnimationClasses();
+  slideImages[counter].classList.add("slidePrev1");
   if (counter == 0) {
     counter = slideImages.length - 1;
   } else {
     counter--;
   }
-  slideImages[counter].style.animation = "prev2 0.5s ease-in forwards";
+  slideImages[counter].classList.add("slidePrev2");
   indicators();
 }
 
@@ -61,24 +76,26 @@ function indicators() {
 
 function switchImage(currentImage) {
   currentImage.classList.add("active");
-  let imageId = currentImage.getAttribute("attr");
+  let imageId = parseInt(currentImage.getAttribute("attr"));
   if (imageId > counter) {
-    slideImages[counter].style.animation = "next1 0.5s ease-in forwards";
+    removeAnimationClasses();
+    slideImages[counter].classList.add("slideNext1");
     counter = imageId;
-    slideImages[counter].style.animation = "next2 0.5s ease-in forwards";
+    slideImages[counter].classList.add("slideNext2");
   } else if (imageId === counter) {
     return;
   } else {
-    slideImages[counter].style.animation = "prev1 0.5s ease-in forwards";
+    removeAnimationClasses();
+    slideImages[counter].classList.add("slidePrev1");
     counter = imageId;
-    slideImages[counter].style.animation = "prev2 0.5s ease-in forwards";
+    slideImages[counter].classList.add("slidePrev2");
   }
   indicators();
 }
 
 //Start button
 
-startButton.addEventListener("click", startInterval());
+startButton.addEventListener("click", startInterval);
 
 function startInterval(timer) {
   if (!myInterval) {
@@ -92,10 +109,6 @@ stopButton.addEventListener("click", stopInterval);
 
 function stopInterval() {
   if (myInterval) {
-    slideImages.forEach((image) => {
-      image.removeAttribute("style");
-    });
-
     clearInterval(myInterval);
     myInterval = null;
   }

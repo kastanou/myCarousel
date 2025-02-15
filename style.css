@@ -34,8 +34,8 @@ body {
   top: 0;
   left: -100%;
 }
-span.next,
-span.prev {
+#next,
+#prev {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -49,14 +49,14 @@ span.prev {
   cursor: pointer;
   z-index: 1;
 }
-span.next {
+#next {
   right: 20px;
 }
-span.prev {
+#prev {
   left: 20px;
 }
-span.next:hover,
-span.prev:hover {
+#next:hover,
+#prev:hover {
   background-color: #ede6d6;
   opacity: 0.8;
   color: #222;
@@ -142,6 +142,7 @@ input[type="text"]:focus {
   border-color: #6c5ce7;
   outline: none;
 }
+
 @keyframes next1 {
   from {
     left: 0%;
@@ -176,4 +177,16 @@ input[type="text"]:focus {
   to {
     left: 0%;
   }
+}
+.slideNext1 {
+  animation: next1 0.5s ease-in forwards;
+}
+.slideNext2 {
+  animation: next2 0.5s ease-in forwards;
+}
+.slidePrev1 {
+  animation: prev1 0.5s ease-in forwards;
+}
+.slidePrev2 {
+  animation: prev2 0.5s ease-in forwards;
 }
